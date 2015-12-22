@@ -13,7 +13,7 @@ import org.apache.hadoop.fs.Path;
  * 测试集用了单个类别，分别是USA 50个，INDIA 20个， ARG 15个。分别计算其tp fp  fn tn
  */
 public class Evaluation {
-	static String[] country = { "USA", "INDIA", "ARG" };
+	static String[] country = { "USA", "INDIA", "ARG" };//选取三个类别
 	static int TP[] = { 0, 0, 0 };
 	static int FP[] = { 0, 0, 0 };
 	static int FN[] = { 0, 0, 0 };
@@ -30,10 +30,7 @@ public class Evaluation {
 
 		while ((strLine = buffer.readLine()) != null) {
 			for (int i = 0; i < country.length; i++) {
-//				System.out.println(country[i]);
 				String[] temp = strLine.split("\t");
-//				System.out.println(temp[0]);
-//				System.out.println(temp.length);
 				if (country[i].equals(temp[0])) { // 统计属于country[0]的tp fn
 					if (temp[2].equals(temp[0])) {
 						TP[i]++;
